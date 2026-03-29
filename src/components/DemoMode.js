@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { queueService } from '../firebase/queueService';
 import LanguageToggle from './shared/LanguageToggle';
-import { useLanguage } from '../hooks/useLanguage';
+// import { useLanguage } from '../hooks/useLanguage'; // TODO: Add translations to demo content
 
 const DemoMode = () => {
-  const { t } = useLanguage();
+  // const { t } = useLanguage(); // TODO: Add translations to demo content
   const [activeDemo, setActiveDemo] = useState('triage');
   const [demoQueue, setDemoQueue] = useState([]);
   const [isAnimating, setIsAnimating] = useState(false);

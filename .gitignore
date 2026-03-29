@@ -36,9 +36,10 @@ functions/lib/
 *.key
 *.pem
 .env
+.env.local
+.env.production
 config.json
 secrets.json
-src/firebase/config.js
 
 # Africa's Talking credentials
 africastalking-config.json
