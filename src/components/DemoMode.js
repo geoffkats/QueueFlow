@@ -311,9 +311,9 @@ const DemoMode = () => {
         {/* Live ETA Sync */}
         {activeDemo === 'eta' && (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div className="bg-white/5 rounded-2xl p-8 border border-white/10">
-              <h2 className="text-2xl font-bold mb-6">Customer View</h2>
-              <div className="bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl p-10 text-center">
+            <div className={`${cardBg} rounded-2xl p-8 border`}>
+              <h2 className={`text-2xl font-bold mb-6 ${textPrimary}`}>Customer View</h2>
+              <div className="bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl p-10 text-center text-white">
                 <div className="text-7xl font-bold mb-3">#{etaDemo.position}</div>
                 <div className="text-xl text-white/80 mb-8">Your Position</div>
                 <div className="bg-black/20 backdrop-blur-sm rounded-xl p-6 mb-6">
@@ -335,44 +335,44 @@ const DemoMode = () => {
               </div>
             </div>
 
-            <div className="bg-white/5 rounded-2xl p-8 border border-white/10">
-              <h2 className="text-2xl font-bold mb-6">Staff Action</h2>
+            <div className={`${cardBg} rounded-2xl p-8 border`}>
+              <h2 className={`text-2xl font-bold mb-6 ${textPrimary}`}>Staff Action</h2>
               <button
                 onClick={simulateETAUpdate}
                 disabled={isAnimating}
-                className="w-full px-8 py-6 bg-emerald-600 hover:bg-emerald-700 rounded-xl font-semibold text-xl disabled:opacity-50 transition-all mb-6"
+                className="w-full px-8 py-6 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-semibold text-xl disabled:opacity-50 transition-all mb-6"
               >
                 Call Next Customer
               </button>
               
-              <div className="bg-white/5 rounded-xl p-6 mb-6 border border-white/10">
-                <h3 className="font-semibold text-emerald-400 mb-4">Live Synchronization Flow</h3>
-                <div className="space-y-3 text-sm text-white/60">
+              <div className={`${isDarkMode ? 'bg-white/5 border-white/10' : 'bg-gray-100 border-gray-200'} rounded-xl p-6 mb-6 border`}>
+                <h3 className={`font-semibold mb-4 ${isDarkMode ? 'text-emerald-400' : 'text-emerald-600'}`}>Live Synchronization Flow</h3>
+                <div className={`space-y-3 text-sm ${textSecondary}`}>
                   <div className="flex items-start gap-3">
-                    <span className="text-emerald-400 mt-0.5">1.</span>
+                    <span className={`mt-0.5 ${isDarkMode ? 'text-emerald-400' : 'text-emerald-600'}`}>1.</span>
                     <span>Staff clicks "Next Customer"</span>
                   </div>
                   <div className="flex items-start gap-3">
-                    <span className="text-emerald-400 mt-0.5">2.</span>
+                    <span className={`mt-0.5 ${isDarkMode ? 'text-emerald-400' : 'text-emerald-600'}`}>2.</span>
                     <span>Firebase updates queue in real-time</span>
                   </div>
                   <div className="flex items-start gap-3">
-                    <span className="text-emerald-400 mt-0.5">3.</span>
+                    <span className={`mt-0.5 ${isDarkMode ? 'text-emerald-400' : 'text-emerald-600'}`}>3.</span>
                     <span>All customer screens update instantly</span>
                   </div>
                   <div className="flex items-start gap-3">
-                    <span className="text-emerald-400 mt-0.5">4.</span>
+                    <span className={`mt-0.5 ${isDarkMode ? 'text-emerald-400' : 'text-emerald-600'}`}>4.</span>
                     <span>ETA recalculated with latest data</span>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-purple-500/10 border border-purple-500/20 rounded-xl p-5">
-                <h3 className="font-semibold text-purple-400 mb-2">ETA Formula</h3>
-                <code className="text-sm text-white/60 block mb-3">
+              <div className={`${isDarkMode ? 'bg-purple-500/10 border-purple-500/20 text-purple-400' : 'bg-purple-100 border-purple-300 text-purple-700'} border rounded-xl p-5`}>
+                <h3 className="font-semibold mb-2">ETA Formula</h3>
+                <code className={`text-sm block mb-3 ${isDarkMode ? 'text-white/60' : 'text-gray-700'}`}>
                   ETA = Position × Avg_Service_Time
                 </code>
-                <div className="text-xs text-white/40">
+                <div className={`text-xs ${textTertiary}`}>
                   Confidence: {etaDemo.confidence === 'high' ? '50+' : etaDemo.confidence === 'medium' ? '10-50' : '<10'} transactions
                 </div>
               </div>

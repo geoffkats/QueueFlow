@@ -301,8 +301,8 @@ const Admin = () => {
                 </div>
               </div>
               
-              <div className="grid gap-3">
-                {priorityRequests.slice(0, 3).map((request) => (
+              <div className="grid gap-3 max-h-[600px] overflow-y-auto pr-2">
+                {priorityRequests.map((request) => (
                   <div key={request.id} className="bg-surface-container-lowest p-4 rounded-lg flex items-center justify-between">
                     <div className="flex items-center gap-4">
                       <div className="w-10 h-10 rounded-full bg-tertiary/10 flex items-center justify-center">
@@ -354,14 +354,6 @@ const Admin = () => {
                   </div>
                 ))}
               </div>
-              
-              {priorityRequests.length > 3 && (
-                <div className="mt-3 text-center">
-                  <button className="text-tertiary text-sm font-semibold hover:underline">
-                    View all {priorityRequests.length} priority requests
-                  </button>
-                </div>
-              )}
             </div>
           )}
 
