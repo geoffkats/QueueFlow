@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { queueService } from '../firebase/queueService';
+import LanguageToggle from './shared/LanguageToggle';
+import { useLanguage } from '../hooks/useLanguage';
 
 const DemoMode = () => {
+  const { t } = useLanguage();
   const [activeDemo, setActiveDemo] = useState('triage');
   const [demoQueue, setDemoQueue] = useState([]);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -155,6 +158,9 @@ const DemoMode = () => {
               <p className={isDarkMode ? 'text-white/60' : 'text-gray-600'}>Algorithmic Innovation Showcase</p>
             </div>
             <div className="flex items-center gap-6">
+              {/* Language Toggle */}
+              <LanguageToggle className={isDarkMode ? 'bg-white/10 hover:bg-white/20 text-white' : 'bg-gray-200 hover:bg-gray-300 text-gray-900'} />
+              
               {/* Theme Toggle */}
               <button
                 onClick={() => setIsDarkMode(!isDarkMode)}

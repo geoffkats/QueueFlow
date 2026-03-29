@@ -2,10 +2,13 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import BottomNavBar from './shared/BottomNavBar';
 import EmptyQueueState from './shared/EmptyQueueState';
+import LanguageToggle from './shared/LanguageToggle';
 import { queueService } from '../firebase/queueService';
+import { useLanguage } from '../hooks/useLanguage';
 
 const QueueStatus = () => {
   const navigate = useNavigate();
+  const { t } = useLanguage();
   const [queueInfo, setQueueInfo] = useState({
     position: 0,
     totalWaiting: 0,
@@ -221,6 +224,7 @@ const QueueStatus = () => {
             <span className="text-xl font-bold tracking-tighter text-[#4648d4] font-headline">SmartQueue</span>
           </div>
           <div className="flex items-center gap-4">
+            <LanguageToggle className="bg-surface-container text-on-surface" />
             <button className="relative p-2 text-on-surface-variant hover:opacity-80 transition-opacity active:scale-95 duration-200">
               <span className="material-symbols-outlined">notifications</span>
               <span className="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
@@ -232,10 +236,10 @@ const QueueStatus = () => {
       <main className="pt-24 px-6 max-w-2xl mx-auto space-y-8">
         {/* Welcome & Status Header */}
         <section className="space-y-1">
-          <h1 className="font-headline text-3xl font-extrabold tracking-tight text-on-surface">Your Queue Status</h1>
+          <h1 className="font-headline text-3xl font-extrabold tracking-tight text-on-surface">{t('yourPosition')}</h1>
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 bg-primary rounded-full pulse-circle"></div>
-            <p className="text-on-surface-variant text-sm font-medium">Updating in real-time...</p>
+            <p className="text-on-surface-variant text-sm font-medium">{t('realTimeUpdates')}</p>
           </div>
         </section>
 
@@ -252,12 +256,12 @@ const QueueStatus = () => {
                 <div className="space-y-1">
                   <span className="font-label text-xs font-bold uppercase tracking-[0.1em] text-primary">Live Ticket</span>
                   <h2 className="font-headline text-5xl font-extrabold tracking-tight text-on-surface">
-                    {queueInfo.status === 'not-waiting' ? 'You\'re up!' : `You are #${queueInfo.position}`}
+                    {queueInfo.status === 'not-waiting' ? 'You\'re up!' : `${t('yourPosition')} #${queueInfo.position}`}
                   </h2>
                 </div>
                 <div className="bg-secondary-container px-4 py-1.5 rounded-full">
                   <span className="font-label text-xs font-bold uppercase tracking-wider text-on-secondary-container">
-                    {queueInfo.status === 'not-waiting' ? 'Ready to Serve' : 'Waiting'}
+                    {queueInfo.status === 'not-waiting' ? 'Ready to Serve' : t('waiting')}
                   </span>
                 </div>
               </div>
@@ -282,9 +286,9 @@ const QueueStatus = () => {
                 <div className="flex-1 bg-surface-container-low rounded-lg p-4 flex items-center gap-3">
                   <span className="material-symbols-outlined text-primary">schedule</span>
                   <div className="flex-1">
-                    <p className="text-xs font-medium text-on-surface-variant uppercase tracking-wider">Est. Wait Time</p>
+                    <p className="text-xs font-medium text-on-surface-variant uppercase tracking-wider">{t('estimatedWait')}</p>
                     <p className="text-lg font-bold text-on-surface">
-                      {queueInfo.estimatedWaitTime > 0 ? `Approx. ${queueInfo.estimatedWaitTime} minutes` : 'Ready now!'}
+                      {queueInfo.estimatedWaitTime > 0 ? `${queueInfo.estimatedWaitTime} ${t('minutes')}` : 'Ready now!'}
                     </p>
                     {queueInfo.etaConfidence && queueInfo.estimatedWaitTime > 0 && (
                       <div className="mt-1 flex items-center gap-1">
