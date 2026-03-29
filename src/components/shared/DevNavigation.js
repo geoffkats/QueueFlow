@@ -13,7 +13,7 @@ const DevNavigation = () => {
   const location = useLocation();
 
   const navItems = [
-    { path: '/demo', label: '🎯 DEMO MODE', description: 'Hackathon showcase', highlight: true },
+    { path: '/demo', label: '🎯 DEMO MODE', description: 'Feature showcase', highlight: true },
     { path: '/', label: 'Customer Portal', description: 'Join queue form' },
     { path: '/queue-status', label: 'Queue Status', description: 'Real-time position' },
     { path: '/admin', label: 'Admin Dashboard', description: 'Manage queue' },
