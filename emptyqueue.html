@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-fixed": "#ffdcc5",
+              "surface-variant": "#e0e3e5",
+              "on-secondary-fixed": "#13144a",
+              "surface-container": "#eceef0",
+              "inverse-primary": "#c0c1ff",
+              "on-surface-variant": "#464554",
+              "primary-fixed": "#e1e0ff",
+              "tertiary-fixed-dim": "#ffb783",
+              "tertiary-container": "#b55d00",
+              "inverse-surface": "#2d3133",
+              "inverse-on-surface": "#eff1f3",
+              "surface-dim": "#d8dadc",
+              "surface-container-lowest": "#ffffff",
+              "secondary-container": "#bdbefe",
+              "background": "#f7f9fb",
+              "on-primary-fixed-variant": "#2f2ebe",
+              "on-tertiary": "#ffffff",
+              "on-primary": "#ffffff",
+              "tertiary": "#904900",
+              "primary": "#4648d4",
+              "on-secondary": "#ffffff",
+              "error": "#ba1a1a",
+              "secondary-fixed": "#e1e0ff",
+              "on-primary-fixed": "#07006c",
+              "on-tertiary-fixed": "#301400",
+              "on-background": "#191c1e",
+              "secondary": "#575992",
+              "surface-container-high": "#e6e8ea",
+              "primary-fixed-dim": "#c0c1ff",
+              "outline": "#767586",
+              "on-tertiary-container": "#fffbff",
+              "surface": "#f7f9fb",
+              "on-secondary-fixed-variant": "#404178",
+              "outline-variant": "#c7c4d7",
+              "on-primary-container": "#fffbff",
+              "on-tertiary-fixed-variant": "#703700",
+              "on-surface": "#191c1e",
+              "secondary-fixed-dim": "#c0c1ff",
+              "on-error": "#ffffff",
+              "surface-container-low": "#f2f4f6",
+              "on-secondary-container": "#494b83",
+              "surface-container-highest": "#e0e3e5",
+              "on-error-container": "#93000a",
+              "surface-bright": "#f7f9fb",
+              "error-container": "#ffdad6",
+              "surface-tint": "#494bd6",
+              "primary-container": "#6063ee"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .live-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+        .editorial-shadow {
+            box-shadow: 0 20px 40px rgba(70, 72, 212, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-slate-100 dark:bg-slate-950 flex flex-col h-full py-6 px-4 z-50">
+<div class="mb-10 px-2">
+<h1 class="text-lg font-black text-indigo-600 dark:text-indigo-400 font-headline tracking-tighter uppercase">QueueFlow</h1>
+<div class="mt-1">
+<p class="text-[10px] uppercase tracking-widest font-bold text-slate-400">Service Hub</p>
+<p class="text-xs text-slate-500">Operator Panel</p>
+</div>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:text-indigo-500 dark:hover:text-indigo-300 hover:bg-white/50 dark:hover:bg-white/5 transition-all duration-300 ease-in-out font-inter text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-indigo-600 dark:text-indigo-400 font-bold border-r-4 border-indigo-600 bg-white/40 font-inter text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="group" style="font-variation-settings: 'FILL' 1;">group</span>
+<span>Live Queue</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:text-indigo-500 dark:hover:text-indigo-300 hover:bg-white/50 dark:hover:bg-white/5 transition-all duration-300 ease-in-out font-inter text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span>History</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:text-indigo-500 dark:hover:text-indigo-300 hover:bg-white/50 dark:hover:bg-white/5 transition-all duration-300 ease-in-out font-inter text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="leaderboard">leaderboard</span>
+<span>Analytics</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-slate-200/50 dark:border-slate-800/50 space-y-1">
+<button class="w-full mb-4 bg-primary text-on-primary py-3 px-4 rounded-lg font-bold text-sm hover:opacity-90 transition-opacity active:scale-95 duration-200">
+                Start New Session
+            </button>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-white/50 font-inter text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-white/50 font-inter text-sm font-medium text-error" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Wrapper -->
+<div class="pl-64 min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-xl z-40">
+<div class="flex items-center justify-between px-8 py-4 w-full">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 px-4 py-1.5 bg-surface-container-lowest rounded-full editorial-shadow border border-outline-variant/10">
+<span class="live-pulse w-2.5 h-2.5 rounded-full bg-primary"></span>
+<span class="text-sm font-headline font-bold text-on-surface">Station 04 - Active</span>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex items-center gap-1 bg-surface-container-low px-2 py-1 rounded-lg">
+<span class="material-symbols-outlined text-on-surface-variant text-xl" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm py-1 font-body w-48" placeholder="Find guest..." type="text"/>
+</div>
+<div class="flex items-center gap-3">
+<button class="p-2 rounded-full hover:bg-slate-200/50 transition-colors text-slate-500">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 rounded-full hover:bg-slate-200/50 transition-colors text-slate-500">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden bg-primary-fixed ring-2 ring-white ml-2">
+<img alt="Operator profile avatar" class="h-full w-full object-cover" data-alt="close-up portrait of a friendly professional man in a clinical setting wearing a clean polo shirt" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBGKml1eobvQjZoasqVA9BYhrJ9y9YnT2OGD49zNMfNfaXEes-ydsLSbipHEG_kIHODwrZAt90-gjKYIO6lOuthBeLoQ7nWuMBRwdHAAMw1kNOXKPmbRZosrpH0xjlQM3eQmqe9HLhclpU_KjxYWd05TXPV9Q_lhiD1KkDDAjia667iTie11510-MSqbtqVROBsPckOlDJ0x_t0WqO6nqjT_irFX_VpkI-69in7NRwF83SZ3nc3q9tkGz7dp3HWDtg6vt6T-02nR4r"/>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 p-8 md:p-12 max-w-7xl mx-auto w-full">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Center Hero Section -->
+<div class="lg:col-span-12 flex flex-col items-center text-center py-16 px-6 bg-surface-container-lowest rounded-xl editorial-shadow relative overflow-hidden">
+<div class="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
+<span class="material-symbols-outlined text-[160px]" data-icon="done_all">done_all</span>
+</div>
+<div class="relative mb-8">
+<div class="w-24 h-24 bg-primary-fixed-dim rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-5xl" data-icon="bedtime_off" style="font-variation-settings: 'FILL' 1;">bedtime_off</span>
+</div>
+<div class="absolute -bottom-2 -right-2 bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase">
+                            All Clear
+                        </div>
+</div>
+<div class="max-w-xl mx-auto">
+<span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label text-xs font-bold tracking-wider uppercase mb-6">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+                            Ready for Next Guest
+                        </span>
+<h2 class="font-headline text-4xl md:text-5xl font-extrabold text-on-surface tracking-tight mb-4">
+                            The queue is currently empty.
+                        </h2>
+<p class="font-body text-lg text-on-surface-variant leading-relaxed mb-10">
+                            You're all caught up! This is a great time to review your recent history, <br class="hidden md:block"/>update your settings, or take a quick mental breather.
+                        </p>
+<div class="flex flex-wrap justify-center gap-4">
+<button class="bg-primary text-on-primary px-8 py-4 rounded-full font-headline font-bold text-lg hover:opacity-95 transition-all flex items-center gap-2 editorial-shadow active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="refresh">refresh</span>
+                                Refresh Queue
+                            </button>
+<button class="bg-surface-container-highest text-on-surface-variant px-8 py-4 rounded-full font-headline font-bold text-lg hover:bg-surface-variant transition-all active:scale-95 duration-200">
+                                Go Offline
+                            </button>
+</div>
+</div>
+</div>
+<!-- Stats Bento Grid -->
+<div class="lg:col-span-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Stat Card 1 -->
+<div class="bg-surface-container-low p-8 rounded-xl flex flex-col justify-between h-44">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-primary" data-icon="groups">groups</span>
+<span class="text-[10px] font-bold tracking-widest text-on-surface-variant uppercase bg-white/40 px-2 py-1 rounded">Daily Volume</span>
+</div>
+<div>
+<p class="text-4xl font-headline font-extrabold text-on-surface">28</p>
+<p class="text-sm font-body text-on-surface-variant font-medium">Total Served Today</p>
+</div>
+</div>
+<!-- Stat Card 2 -->
+<div class="bg-surface-container-low p-8 rounded-xl flex flex-col justify-between h-44">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-primary" data-icon="timer">timer</span>
+<span class="text-[10px] font-bold tracking-widest text-on-surface-variant uppercase bg-white/40 px-2 py-1 rounded">Efficiency</span>
+</div>
+<div>
+<p class="text-4xl font-headline font-extrabold text-on-surface">6:45</p>
+<p class="text-sm font-body text-on-surface-variant font-medium">Avg. Service Time</p>
+</div>
+</div>
+<!-- Stat Card 3 -->
+<div class="bg-surface-container-low p-8 rounded-xl flex flex-col justify-between h-44">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-primary" data-icon="sentiment_very_satisfied">sentiment_very_satisfied</span>
+<span class="text-[10px] font-bold tracking-widest text-on-surface-variant uppercase bg-white/40 px-2 py-1 rounded">Feedback</span>
+</div>
+<div>
+<div class="flex items-baseline gap-1">
+<p class="text-4xl font-headline font-extrabold text-on-surface">98%</p>
+<span class="text-primary font-bold text-xs">↑ 2%</span>
+</div>
+<p class="text-sm font-body text-on-surface-variant font-medium">Satisfaction Rate</p>
+</div>
+</div>
+</div>
+<!-- Subtle Informational Section -->
+<div class="lg:col-span-7 bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/20">
+<h3 class="font-headline text-xl font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="history">history</span>
+                        Recent Activity
+                    </h3>
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center shrink-0">
+<span class="text-xs font-bold font-headline">MJ</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold">Marcus Johnson</p>
+<p class="text-xs text-on-surface-variant">General Consultation • Ticket #402</p>
+</div>
+<p class="text-xs font-medium text-on-surface-variant">12 mins ago</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center shrink-0">
+<span class="text-xs font-bold font-headline">SL</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold">Sarah Lewis</p>
+<p class="text-xs text-on-surface-variant">Laboratory Visit • Ticket #401</p>
+</div>
+<p class="text-xs font-medium text-on-surface-variant">28 mins ago</p>
+</div>
+</div>
+<button class="mt-8 text-primary font-headline font-bold text-sm flex items-center gap-2 hover:underline">
+                        View Full History
+                        <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="lg:col-span-5 flex flex-col gap-6">
+<div class="bg-primary text-on-primary p-8 rounded-xl relative overflow-hidden">
+<div class="relative z-10">
+<p class="text-[10px] font-bold tracking-widest uppercase mb-2 opacity-80">Pro Tip</p>
+<h4 class="font-headline font-bold text-lg mb-2">Optimize your station</h4>
+<p class="text-sm opacity-90 leading-relaxed font-body">Use this downtime to check your printer supplies and update your station's greeting message.</p>
+</div>
+<div class="absolute -bottom-4 -right-4 opacity-20 transform rotate-12">
+<span class="material-symbols-outlined text-8xl" data-icon="lightbulb">lightbulb</span>
+</div>
+</div>
+<div class="bg-surface-container-high p-8 rounded-xl">
+<div class="flex items-center justify-between mb-4">
+<span class="text-sm font-bold font-headline">Station Health</span>
+<span class="text-[10px] font-bold text-primary">OPTIONAL</span>
+</div>
+<div class="space-y-3">
+<div class="h-1.5 w-full bg-surface-container-low rounded-full overflow-hidden">
+<div class="h-full bg-primary w-4/5"></div>
+</div>
+<p class="text-xs font-medium text-on-surface-variant">System Latency: 42ms (Stable)</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Mobile Only -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-surface-container-lowest flex justify-around py-4 editorial-shadow rounded-t-xl z-50">
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Dash</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" data-icon="group" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Queue</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Past</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Set</span>
+</button>
+</nav>
+</div>
+</body></html>

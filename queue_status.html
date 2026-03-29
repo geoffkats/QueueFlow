@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SmartQueue Status</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-bright": "#f7f9fb",
+              "primary-fixed": "#e1e0ff",
+              "outline-variant": "#c7c4d7",
+              "primary-container": "#6063ee",
+              "primary-fixed-dim": "#c0c1ff",
+              "on-secondary-container": "#494b83",
+              "on-primary": "#ffffff",
+              "on-background": "#191c1e",
+              "outline": "#767586",
+              "on-tertiary-fixed": "#301400",
+              "on-error": "#ffffff",
+              "inverse-surface": "#2d3133",
+              "surface-dim": "#d8dadc",
+              "secondary-container": "#bdbefe",
+              "primary": "#4648d4",
+              "error-container": "#ffdad6",
+              "on-surface-variant": "#464554",
+              "tertiary": "#904900",
+              "surface": "#f7f9fb",
+              "on-error-container": "#93000a",
+              "inverse-on-surface": "#eff1f3",
+              "on-primary-container": "#fffbff",
+              "error": "#ba1a1a",
+              "background": "#f7f9fb",
+              "tertiary-fixed": "#ffdcc5",
+              "secondary-fixed-dim": "#c0c1ff",
+              "surface-container-lowest": "#ffffff",
+              "on-secondary-fixed-variant": "#404178",
+              "surface-container-high": "#e6e8ea",
+              "secondary-fixed": "#e1e0ff",
+              "inverse-primary": "#c0c1ff",
+              "secondary": "#575992",
+              "on-primary-fixed": "#07006c",
+              "tertiary-fixed-dim": "#ffb783",
+              "surface-variant": "#e0e3e5",
+              "on-secondary-fixed": "#13144a",
+              "on-tertiary": "#ffffff",
+              "on-tertiary-container": "#fffbff",
+              "on-tertiary-fixed-variant": "#703700",
+              "tertiary-container": "#b55d00",
+              "surface-tint": "#494bd6",
+              "on-surface": "#191c1e",
+              "surface-container-highest": "#e0e3e5",
+              "on-secondary": "#ffffff",
+              "on-primary-fixed-variant": "#2f2ebe",
+              "surface-container": "#eceef0",
+              "surface-container-low": "#f2f4f6"
+            },
+            fontFamily: {
+              "headline": ["Manrope", "sans-serif"],
+              "body": ["Inter", "sans-serif"],
+              "label": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tonal-shift {
+            background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(242,244,246,1) 100%);
+        }
+        .pulse-circle {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: .4; transform: scale(1.2); }
+        }
+    </style>
+</head>
+<body class="bg-surface-bright font-body text-on-surface min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#f7f9fb]/80 backdrop-blur-xl shadow-[0_20px_40px_rgba(70,72,212,0.05)]">
+<div class="flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-3">
+<span class="text-xl font-bold tracking-tighter text-[#4648d4] font-headline">SmartQueue</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="relative p-2 text-on-surface-variant hover:opacity-80 transition-opacity active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+</div>
+</div>
+</header>
+<main class="pt-24 px-6 max-w-2xl mx-auto space-y-8">
+<!-- Welcome & Status Header -->
+<section class="space-y-1">
+<h1 class="font-headline text-3xl font-extrabold tracking-tight text-on-surface">Your Queue Status</h1>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 bg-primary rounded-full pulse-circle"></div>
+<p class="text-on-surface-variant text-sm font-medium">Updating in real-time...</p>
+</div>
+</section>
+<!-- Main Status Card -->
+<section class="relative overflow-hidden bg-surface-container-lowest rounded-xl shadow-[0_20px_40px_rgba(70,72,212,0.08)] p-8">
+<!-- Left Accent Bar -->
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary"></div>
+<div class="flex flex-col gap-6">
+<div class="flex justify-between items-start">
+<div class="space-y-1">
+<span class="font-label text-xs font-bold uppercase tracking-[0.1em] text-primary">Live Ticket</span>
+<h2 class="font-headline text-5xl font-extrabold tracking-tight text-on-surface">You are #12</h2>
+</div>
+<div class="bg-secondary-container px-4 py-1.5 rounded-full">
+<span class="font-label text-xs font-bold uppercase tracking-wider text-on-secondary-container">Waiting</span>
+</div>
+</div>
+<!-- Progress Section -->
+<div class="space-y-3">
+<div class="flex justify-between text-sm font-medium">
+<span class="text-on-surface-variant">Progress</span>
+<span class="text-primary">8 of 20 ahead of you</span>
+</div>
+<div class="w-full h-3 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full w-[60%]"></div>
+</div>
+</div>
+<div class="flex items-center gap-4 pt-2">
+<div class="flex-1 bg-surface-container-low rounded-lg p-4 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="schedule">schedule</span>
+<div>
+<p class="text-xs font-medium text-on-surface-variant uppercase tracking-wider">Est. Wait Time</p>
+<p class="text-lg font-bold text-on-surface">Approx. 25 minutes</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Details Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="bg-surface-container-lowest rounded-lg p-6 flex items-start gap-4">
+<div class="w-12 h-12 rounded-2xl bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="local_hospital">local_hospital</span>
+</div>
+<div>
+<p class="text-xs font-medium text-on-surface-variant uppercase tracking-wider">Service Type</p>
+<p class="text-lg font-bold text-on-surface leading-tight">General Consultation</p>
+<p class="text-sm text-on-surface-variant">City Central Hospital</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-lg p-6 flex items-start gap-4">
+<div class="w-12 h-12 rounded-2xl bg-tertiary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary" data-icon="priority_high">priority_high</span>
+</div>
+<div>
+<p class="text-xs font-medium text-on-surface-variant uppercase tracking-wider">Priority Level</p>
+<p class="text-lg font-bold text-on-surface">Standard</p>
+<p class="text-sm text-on-surface-variant">Queue #A-402</p>
+</div>
+</div>
+</section>
+<!-- Location Context Section -->
+<section class="bg-surface-container-low rounded-xl overflow-hidden">
+<div class="p-6 pb-4">
+<h3 class="font-headline text-xl font-bold text-on-surface">Wait in Comfort</h3>
+<p class="text-on-surface-variant text-sm mt-1">Visit our lounge or café while you wait. We'll notify you when you're 5 minutes away.</p>
+</div>
+<div class="relative h-48 w-full bg-surface-variant">
+<img alt="Hospital Lounge" class="w-full h-full object-cover" data-alt="Modern spacious hospital lounge with comfortable minimalist furniture large windows soft daylight and indoor plants" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaosZVBrRCbvR3hXrrF_0isxXu0HJnTMlHhcIEExrdP3SIuHzSjN30_uvTWU9qqQ3Df9U0gGzk4vdSqeaqAOfc5mwY7zsI4YuledDiN8mWG9gSew6uM3zdBIWnCg03L-Upc17mn1S6fh35Y20gV9k8IH0l_CccG0xMsht4Za3IAfpco-fdEilrpGLHFKq36MfUWvr0H1xx1kfnEXK9TdJQtosr4BAUScv_P3fPrr5BKwEP3xdi4MHROo8b-jbRvEUkeDsoi03Odj4p"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent"></div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 md:hidden">
+<div class="bg-white/80 backdrop-blur-xl rounded-t-[3rem] shadow-[0_-10px_40px_rgba(70,72,212,0.08)] flex justify-around items-center px-4 pb-8 pt-4">
+<a class="flex flex-col items-center justify-center text-[#464554] px-5 py-2 hover:text-[#4648d4] transition-colors active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Inter'] text-[11px] font-medium tracking-[0.05em] uppercase mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#4648d4]/10 text-[#4648d4] rounded-2xl px-5 py-2 active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="confirmation_number" style="font-variation-settings: 'FILL' 1;">confirmation_number</span>
+<span class="font-['Inter'] text-[11px] font-medium tracking-[0.05em] uppercase mt-1">My Tickets</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#464554] px-5 py-2 hover:text-[#4648d4] transition-colors active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="distance">distance</span>
+<span class="font-['Inter'] text-[11px] font-medium tracking-[0.05em] uppercase mt-1">Locations</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#464554] px-5 py-2 hover:text-[#4648d4] transition-colors active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Inter'] text-[11px] font-medium tracking-[0.05em] uppercase mt-1">Profile</span>
+</a>
+</div>
+</nav>
+</body></html>
